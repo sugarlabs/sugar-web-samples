@@ -5,15 +5,15 @@
 <link rel="stylesheet" href="lib/sugar-web/graphics/css/sugar.css">
 <style>
 
-#toolbar #zoom-neighborhood {
+#main-toolbar #zoom-neighborhood {
   background-image: url(lib/sugar-web/graphics/icons/actions/zoom-neighborhood.svg);
 }
 
-#toolbar #zoom-groups {
+#main-toolbar #zoom-groups {
   background-image: url(lib/sugar-web/graphics/icons/actions/zoom-groups.svg);
 }
 
-#toolbar #zoom-home {
+#main-toolbar #zoom-home {
   background-image: url(lib/sugar-web/graphics/icons/actions/zoom-home.svg);
 }
 
@@ -39,11 +39,10 @@ require(["sugar-web/graphics/util", "sugar-web/graphics/radiobuttonsgroup",
 </script>
 </head>
 <body>
-<div id="toolbar">
-  <button id="zoom-neighborhood"></button>
-  <button id="zoom-groups"></button>
-  <button id="zoom-home"></button>
+<div id="main-toolbar" class="toolbar">
+  <button class="toolbutton" id="zoom-neighborhood"></button>
+  <button class="toolbutton" id="zoom-groups"></button>
+  <button class="toolbutton" id="zoom-home"></button>
 </div>
-<div id="canvas"></div>
 </body>
 </html>
