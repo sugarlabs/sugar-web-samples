@@ -4,7 +4,8 @@
 @text-field-grey: #E5E5E5;
 
 @line-width: 2px;
-@toolbar-height: 54px;
+@subcell-size: 11px;
+@toolbar-height: 5 * @subcell-size;
 @icon-small-size: 20px;
 
 @toolbutton-size: @toolbar-height - (4 * @line-width);
@@ -91,6 +92,7 @@ body {
 #canvas {
   color: black;
   background-color: @panel-grey;
+  margin: @subcell-size;
 }
 
 /* Button */
@@ -287,4 +289,13 @@ label {
   background-color: black;
   position: absolute;
   border: @line-width solid @button-grey;
+}
+
+/* Grid for visual debugging and layout */
+
+.grid {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
