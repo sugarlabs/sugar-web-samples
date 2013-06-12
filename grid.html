@@ -24,9 +24,9 @@ requirejs.config({
     baseUrl: "lib"
 });
 
-require(["sugar-web/graphics/util", "sugar-web/graphics/radiobuttonsgroup",
+require(["sugar-web/graphics/radiobuttonsgroup",
     "sugar-web/graphics/grid", "domReady!"],
-    function (util, radioButtonsGroup, grid, doc) {
+    function (radioButtonsGroup, grid, doc) {
 
     var radioButtonsGroup = require("sugar-web/graphics/radiobuttonsgroup");
     var neighbButton = document.getElementById("zoom-neighborhood");
