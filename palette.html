@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="lib/sugar-web/graphics/css/sugar.css">
+<style>
+
+#main-toolbar #zoom-neighborhood {
+  background-image: url(lib/sugar-web/graphics/icons/actions/zoom-neighborhood.svg);
+}
+
+#main-toolbar #zoom-groups {
+  background-image: url(lib/sugar-web/graphics/icons/actions/zoom-groups.svg);
+}
+
+#main-toolbar #zoom-home {
+  background-image: url(lib/sugar-web/graphics/icons/actions/zoom-home.svg);
+}
+
+#canvas p {
+  background-color: white;
+  margin: 11px;
+  padding: 11px;
+}
+
+</style>
+<script src="lib/require.js"></script>
+<script>
+requirejs.config({
+    baseUrl: "lib"
+});
+
+require(["sugar-web/graphics/palette", "domReady!"],
+        function (palette, doc) {
+
+    var neighbButton = document.getElementById("zoom-neighborhood");
+    var groupsButton = document.getElementById("zoom-groups");
+    var homeButton = document.getElementById("zoom-home");
+    var textElem = document.querySelector("#canvas p");
+
+    var neighbPalette = new palette.Palette(neighbButton);
+    var groupsPalette = new palette.Palette(groupsButton);
+    var homePalette = new palette.Palette(homeButton);
+    var textPalette = new palette.Palette(textElem);
+
+    var sampleText;
+
+    sampleText = document.createElement('p');
+    sampleText.innerText = "Neighborhood";
+    var neighbContainer = neighbPalette.getContainer();
+    neighbContainer.appendChild(sampleText);
+
+    sampleText = document.createElement('p');
+    sampleText.innerText = "Groups";
+    var groupsContainer = groupsPalette.getContainer();
+    groupsContainer.appendChild(sampleText);
+
+    sampleText = document.createElement('p');
+    sampleText.innerText = "Home";
+    var homeContainer = homePalette.getContainer();
+    homeContainer.appendChild(sampleText);
+
+    sampleText = document.createElement('p');
+    sampleText.innerText = "Text";
+    var textContainer = textPalette.getContainer();
+    textContainer.appendChild(sampleText);
+
+    neighbPalette.popUp();
+});
+</script>
+</head>
+<body>
+<div id="main-toolbar" class="toolbar">
+  <button class="toolbutton" id="zoom-neighborhood"></button>
+  <button class="toolbutton" id="zoom-groups"></button>
+  <button class="toolbutton" id="zoom-home"></button>
+</div>
+<div id="canvas">
+  <p>Tap or click anywhere inside this paragraph.<br/>A palette will
+  popup.<br/><br/>You can also press the toolbar buttons</p>
+</div>
+</body>
+</html>
