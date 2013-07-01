@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+  - Copyright 2013 Manuel Quiñones
+  -
+  - Licensed under the Apache License, Version 2.0 (the "License");
+  - you may not use this file except in compliance with the License.
+  - You may obtain a copy of the License at
+  -
+  -
+  -    http://www.apache.org/licenses/LICENSE-2.0
+  -
+  - Unless required by applicable law or agreed to in writing, software
+  - distributed under the License is distributed on an "AS IS" BASIS,
+  - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  - See the License for the specific language governing permissions and
+  - limitations under the License.
+  -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="lib/sugar-web/graphics/css/sugar.css">
+<style>
+
+#main-toolbar #zoom-neighborhood {
+  background-image: url(lib/sugar-web/graphics/icons/actions/zoom-neighborhood.svg);
+}
+
+#main-toolbar #zoom-groups {
+  background-image: url(lib/sugar-web/graphics/icons/actions/zoom-groups.svg);
+}
+
+#main-toolbar #zoom-home {
+  background-image: url(lib/sugar-web/graphics/icons/actions/zoom-home.svg);
+}
+
+</style>
+<script src="lib/require.js"></script>
+<script>
+requirejs.config({
+    baseUrl: "lib"
+});
+
+require(["sugar-web/graphics/radiobuttonsgroup",
+    "sugar-web/graphics/grid", "domReady!"],
+    function (radioButtonsGroup, grid, doc) {
+
+    var radioButtonsGroup = require("sugar-web/graphics/radiobuttonsgroup");
+    var neighbButton = document.getElementById("zoom-neighborhood");
+    var groupsButton = document.getElementById("zoom-groups");
+    var homeButton = document.getElementById("zoom-home");
+
+    var radio = new radioButtonsGroup.RadioButtonsGroup(
+        [neighbButton, groupsButton, homeButton]);
+
+//    grid.addGrid(11);
+
+});
+</script>
+</head>
+<body>
+<div id="main-toolbar" class="toolbar">
+  <button class="toolbutton" id="zoom-neighborhood"></button>
+  <hr/>
+  <button class="toolbutton" id="zoom-groups"></button>
+  <button class="toolbutton" id="zoom-home"></button>
+</div>
+</body>
+</html>
