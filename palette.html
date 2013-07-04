@@ -39,6 +39,10 @@
   padding: 11px;
 }
 
+.palette p {
+  margin: 5.5px;
+}
+
 </style>
 <script src="lib/require.js"></script>
 <script>
@@ -54,32 +58,20 @@ require(["sugar-web/graphics/palette", "domReady!"],
     var homeButton = document.getElementById("zoom-home");
     var textElem = document.querySelector("#canvas p");
 
-    var neighbPalette = new palette.Palette(neighbButton);
-    var groupsPalette = new palette.Palette(groupsButton);
-    var homePalette = new palette.Palette(homeButton);
+    var neighbPalette = new palette.Palette(neighbButton, "Neighborhood");
+    var groupsPalette = new palette.Palette(groupsButton, "Groups");
+    var homePalette = new palette.Palette(homeButton, "Home");
     var textPalette = new palette.Palette(textElem);
 
-    var sampleText;
+    var sampleText = document.createElement('p');
+    sampleText.innerText = "This is the content of the palette. " +
+        "This palette has a header.";
+    homePalette.setContent([sampleText]);
 
-    sampleText = document.createElement('p');
-    sampleText.innerText = "Neighborhood";
-    var neighbContainer = neighbPalette.getContainer();
-    neighbContainer.appendChild(sampleText);
-
-    sampleText = document.createElement('p');
-    sampleText.innerText = "Groups";
-    var groupsContainer = groupsPalette.getContainer();
-    groupsContainer.appendChild(sampleText);
-
-    sampleText = document.createElement('p');
-    sampleText.innerText = "Home";
-    var homeContainer = homePalette.getContainer();
-    homeContainer.appendChild(sampleText);
-
-    sampleText = document.createElement('p');
-    sampleText.innerText = "Text";
-    var textContainer = textPalette.getContainer();
-    textContainer.appendChild(sampleText);
+    var sampleText = document.createElement('p');
+    sampleText.innerText = "This is the content of the palette " +
+        "This palette doesn't have a header.";
+    textPalette.setContent([sampleText]);
 
     neighbPalette.popUp();
 });
