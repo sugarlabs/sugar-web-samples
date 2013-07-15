@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+  - Copyright 2013 Manuel Quiñones
+  -
+  - Licensed under the Apache License, Version 2.0 (the "License");
+  - you may not use this file except in compliance with the License.
+  - You may obtain a copy of the License at
+  -
+  -
+  -    http://www.apache.org/licenses/LICENSE-2.0
+  -
+  - Unless required by applicable law or agreed to in writing, software
+  - distributed under the License is distributed on an "AS IS" BASIS,
+  - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  - See the License for the specific language governing permissions and
+  - limitations under the License.
+  -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="lib/sugar-web/graphics/css/sugar.css">
+<style>
+
+#main-toolbar #activity-button {
+  background-image: url(icons/activity-icon.svg);
+}
+
+#main-toolbar #favourite-button {
+  background-image: url(icons/favourite.svg);
+}
+
+</style>
+<script src="lib/require.js"></script>
+<script>
+requirejs.config({
+    baseUrl: "lib"
+});
+
+require(["sugar-web/graphics/activitypalette", "domReady!"],
+        function (activitypalette, doc) {
+
+    var button = document.getElementById("activity-button");
+    var palette = new activitypalette.ActivityPalette(button);
+    palette.popUp();
+});
+</script>
+</head>
+<body>
+<div id="main-toolbar" class="toolbar">
+  <button class="toolbutton" id="activity-button" title="My Activity"></button>
+  <button class="toolbutton" id="favourite-button" title="Favourite"></button>
+  <button class="toolbutton pull-right" id="stop-button" title="Stop"></button>
+</div>
+</body>
+</html>
